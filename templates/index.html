@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        h1, h2 {
+            font-weight: 700;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        .btn-custom {
+            width: 100%;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card p-4">
+                <h1 class="text-center mb-4">🏠 House Price Prediction</h1>
+
+                <form action="/predict" method="POST">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="number" name="bedrooms" class="form-control" placeholder="Bedrooms" required>
+                            <input type="number" name="bathrooms" step="0.1" class="form-control" placeholder="Bathrooms" required>
+                            <input type="number" name="sqft_living" class="form-control" placeholder="Sqft Living" required>
+                            <input type="number" name="sqft_lot" class="form-control" placeholder="Sqft Lot" required>
+                            <input type="number" name="floors" step="0.1" class="form-control" placeholder="Floors" required>
+                            <input type="number" name="waterfront" class="form-control" placeholder="Waterfront (0 or 1)" required>
+                            <input type="number" name="view" class="form-control" placeholder="View (0-4)" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="number" name="condition" class="form-control" placeholder="Condition (1-5)" required>
+                            <input type="number" name="sqft_above" class="form-control" placeholder="Sqft Above" required>
+                            <input type="number" name="sqft_basement" class="form-control" placeholder="Sqft Basement" required>
+                            <input type="number" name="yr_built" class="form-control" placeholder="Year Built" required>
+                            <input type="number" name="yr_renovated" class="form-control" placeholder="Year Renovated (0 if none)" required>
+                            <input type="text" name="city" class="form-control" placeholder="City" required>
+                            <input type="text" name="country" class="form-control" placeholder="Country" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-custom mt-3">
+                        Predict Price
+                    </button>
+                </form>
+
+                <h3 class="text-center mt-4 text-primary">
+                    {{ prediction_text }}
+                </h3>
+            </div>
+
+            <div class="text-center footer-text">
+                <h2>Project By Nagendhra</h2>
+                <p>Data Scientist & NLP Engineer</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
